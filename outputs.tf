@@ -24,7 +24,7 @@ output "quicksight_data_sets_data_set_id" {
 }
 output "quicksight_data_sets_data_set_usage_configuration" {
   description = "Map of data_set_usage_configuration values across all quicksight_data_sets, keyed the same as var.quicksight_data_sets"
-  value       = { for k, v in aws_quicksight_data_set.quicksight_data_sets : k => v.data_set_usage_configuration if v.data_set_usage_configuration != null && length(v.data_set_usage_configuration) > 0 }
+  value       = { for k, v in aws_quicksight_data_set.quicksight_data_sets : k => one(v.data_set_usage_configuration) if v.data_set_usage_configuration != null && length(v.data_set_usage_configuration) > 0 }
 }
 output "quicksight_data_sets_field_folders" {
   description = "Map of field_folders values across all quicksight_data_sets, keyed the same as var.quicksight_data_sets"
@@ -56,7 +56,7 @@ output "quicksight_data_sets_physical_table_map" {
 }
 output "quicksight_data_sets_refresh_properties" {
   description = "Map of refresh_properties values across all quicksight_data_sets, keyed the same as var.quicksight_data_sets"
-  value       = { for k, v in aws_quicksight_data_set.quicksight_data_sets : k => v.refresh_properties if v.refresh_properties != null && length(v.refresh_properties) > 0 }
+  value       = { for k, v in aws_quicksight_data_set.quicksight_data_sets : k => one(v.refresh_properties) if v.refresh_properties != null && length(v.refresh_properties) > 0 }
 }
 output "quicksight_data_sets_region" {
   description = "Map of region values across all quicksight_data_sets, keyed the same as var.quicksight_data_sets"
@@ -64,11 +64,11 @@ output "quicksight_data_sets_region" {
 }
 output "quicksight_data_sets_row_level_permission_data_set" {
   description = "Map of row_level_permission_data_set values across all quicksight_data_sets, keyed the same as var.quicksight_data_sets"
-  value       = { for k, v in aws_quicksight_data_set.quicksight_data_sets : k => v.row_level_permission_data_set if v.row_level_permission_data_set != null && length(v.row_level_permission_data_set) > 0 }
+  value       = { for k, v in aws_quicksight_data_set.quicksight_data_sets : k => one(v.row_level_permission_data_set) if v.row_level_permission_data_set != null && length(v.row_level_permission_data_set) > 0 }
 }
 output "quicksight_data_sets_row_level_permission_tag_configuration" {
   description = "Map of row_level_permission_tag_configuration values across all quicksight_data_sets, keyed the same as var.quicksight_data_sets"
-  value       = { for k, v in aws_quicksight_data_set.quicksight_data_sets : k => v.row_level_permission_tag_configuration if v.row_level_permission_tag_configuration != null && length(v.row_level_permission_tag_configuration) > 0 }
+  value       = { for k, v in aws_quicksight_data_set.quicksight_data_sets : k => one(v.row_level_permission_tag_configuration) if v.row_level_permission_tag_configuration != null && length(v.row_level_permission_tag_configuration) > 0 }
 }
 output "quicksight_data_sets_tags" {
   description = "Map of tags values across all quicksight_data_sets, keyed the same as var.quicksight_data_sets"
